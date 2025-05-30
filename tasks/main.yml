@@ -1,18 +1,18 @@
-#SPDX-License-Identifier: MIT-0
+ #SPDX-License-Identifier: MIT-0
 
-# tasks file for my-docker
+ # tasks file for my-docker
 
- # generated with AI: Mistral Le Chat 
+ # generated with AI: Mistral Le Chat
  # https://chat.mistral.ai/chat/d758136c-1685-4dc8-9f99-a9f5858c6b56
  # using installation information from: https://docs.docker.com/engine/install/ubuntu/
 ---
 - name: Install Docker and run hello-world container
   hosts: all
-  become: yes
+  become: true
   tasks:
     - name: Update apt package index
       apt:
-        update_cache: yes
+        update_cache: true
 
     - name: Install required packages
       apt:
@@ -42,7 +42,7 @@
 
     - name: Update apt package index again
       apt:
-        update_cache: yes
+        update_cache: true
 
     - name: Install Docker packages
       apt:
@@ -54,6 +54,3 @@
         - containerd.io
         - docker-buildx-plugin
         - docker-compose-plugin
-
-    - name: Run hello-world container
-      command: docker run hello-world
